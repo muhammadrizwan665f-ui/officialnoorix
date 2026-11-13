@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "noorix-agency",
+  "name": "officialnoorix",
   "main": "worker/index.ts",
   "build": { "command": "npm run build" },
   "compatibility_date": "2025-06-01",
@@ -16,8 +16,7 @@
     {
       "binding": "DB",
       "database_name": "noorix-agency-db",
-      // REPLACE after running: npx wrangler d1 create noorix-agency-db
-      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "database_id": "d7771762-ae7b-430a-9f98-c77a780768ff",
       "migrations_dir": "migrations"
     }
   ],
