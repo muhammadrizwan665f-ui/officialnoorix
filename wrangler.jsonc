@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "noorix-agency",
+  "main": "worker/index.ts",
+  "build": { "command": "npm run build" },
+  "compatibility_date": "2025-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "none",
+    // Everything except built static files goes through the Worker first (API, uploads, SEO-injected HTML).
+    "run_worker_first": ["/*", "!/assets/*", "!/brand/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "noorix-agency-db",
+      // REPLACE after running: npx wrangler d1 create noorix-agency-db
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [{ "binding": "FILES", "bucket_name": "noorix-agency-files" }],
+  "vars": {
+    // Set to the real production domain once it is connected.
+    "SITE_URL": "https://noorixdigitallab.com"
+  },
+  "observability": { "enabled": true },
+  // SECRETS (never put these here): npx wrangler secret put <NAME>
+  //   SETUP_TOKEN       - one-time token used to create the first admin account (see README)
+  //   TURNSTILE_SECRET  - optional, enables Cloudflare Turnstile verification on the contact form
+  "keep_vars": true
+}

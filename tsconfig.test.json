@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "hono": ["/home/claude/tools/vendor/hono/src/index.ts"],
+      "hono/*": ["/home/claude/tools/vendor/hono/src/*"],
+      "hono/cookie": ["/home/claude/tools/vendor/hono/src/helper/cookie/index.ts"]
+    }
+  }
+}

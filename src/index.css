@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-white text-brand-ink antialiased font-sans; margin: 0; overflow-x: hidden; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  img { @apply max-w-full; }
+  :focus-visible { outline: 2px solid #1769FF; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, ::before, ::after { animation: none !important; transition: none !important; } }
+}
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold transition duration-200 disabled:cursor-not-allowed disabled:opacity-60 whitespace-nowrap; }
+  .btn-primary { @apply btn bg-brand text-white shadow-lift hover:-translate-y-0.5 hover:bg-[#0f57e0]; }
+  .btn-dark { @apply btn bg-brand-ink text-white hover:bg-brand-deep; }
+  .btn-ghost { @apply btn border border-brand-line bg-white text-brand-ink hover:border-brand hover:text-brand; }
+  .btn-ghost-dark { @apply btn border border-white/25 bg-white/5 text-white hover:bg-white/10; }
+  .card { @apply rounded-2xl border border-brand-line bg-white shadow-card; }
+  .eyebrow { @apply inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand; }
+  .h1 { @apply text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl; }
+  .h2 { @apply text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl; }
+  .lead { @apply text-base leading-relaxed text-brand-muted sm:text-lg; }
+  .field { @apply w-full rounded-xl border border-brand-line bg-white px-3.5 py-2.5 text-sm text-brand-ink placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 disabled:bg-slate-50; }
+  .label { @apply mb-1.5 block text-xs font-bold text-slate-700; }
+  .prose-n p { @apply mb-4 leading-relaxed text-slate-700; }
+  .prose-n h2 { @apply mb-2 mt-8 text-xl font-bold text-brand-ink; }
+}
